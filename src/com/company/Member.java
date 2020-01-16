@@ -51,7 +51,9 @@ public class Member {
 
     private void borrowBook(String input) {
         Book book = library.searchForBook(input);
-        borrowedBooks.add(book);         // Här måste jag fixa så det räcker med att man skriver in bokens namn
+        borrowedBooks.add(book);    // funkar denna?
+        book.setAvailable(false);
+        // Här måste jag fixa så det räcker med att man skriver in bokens namn
         // Här behöver man sätta att boken är utlånad boolean?
         // Samt att den sparas
     }
@@ -71,8 +73,8 @@ public class Member {
         for (Book book : borrowedBooks) {
             if (book.getTitle().equals(title)) {
                 borrowedBooks.remove(book);
-                // Här behöver man sätta så att boken blir ledig igen
-                // samt uppdatera den sparade listan
+                book.setAvailable(true);
+                // Behöver man uppdatera den sparade listan här?
             }
         }
     }

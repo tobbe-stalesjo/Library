@@ -37,7 +37,7 @@ public class Library {
                         //allBook();
                         break;
                     case 2:
-                        //allAvailableBook();
+                        allAvailableBook();
                         break;
                     case 3:
                         System.out.println("Enter the title of the book you searching for");
@@ -62,9 +62,18 @@ public class Library {
         }
     }
 
+    private void allAvailableBook() {           // Denna måste testas, behöver jag skicka med något här?
+        for (Book book : books) {
+            if (book.getAvailable()) {          // Ska det vara = med något här?
+                System.out.println(book);
+            }
+        }
+    }
+
     public Book searchForBook(String title) {
         for (Book book : books) {
             if (book.getTitle().toLowerCase().contains(title.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
+                // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
                 return book;
                 // Kan man här även visa om den finns tillänglig att låna och lånad den direkt?
             }
@@ -95,7 +104,7 @@ public class Library {
         members.add(member);
     }
 
-    public void logInAdmin () {
+    public void logInAdmin() {
         System.out.println("Please enter your admin name: ");
         String user = scanner.nextLine();
         if (user.equals("Admin")) {
@@ -106,8 +115,8 @@ public class Library {
         }
     }
 
-     public void listOfMembers() {              // Ska dessa vara public istället
-        for (Member member: members){
+    public void listOfMembers() {              // Ska dessa vara public istället
+        for (Member member : members) {
             System.out.println(member);
         }
     }
