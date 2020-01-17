@@ -8,10 +8,9 @@ import java.util.Scanner;
 public class Admin implements Serializable {
 
     transient Scanner scanner = new Scanner(System.in);
-    Library library;
 
 
-    public void logInAsAdmin(ArrayList<Member> members) {
+    public void logInAsAdmin(ArrayList<Member> members, ArrayList<Book> books) {
         boolean running = true;
 
         while (running) {
@@ -23,38 +22,41 @@ public class Admin implements Serializable {
             System.out.println("4. Search for a member");
             System.out.println("5. Log out");
 
-            int choice = Integer.parseInt(scanner.nextLine());
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
-                    addNewBook();
+                case "1":
+                    addNewBook(books);
                     break;
-                case 2:
+                case "2":
                     removeBook();
                     break;
-                case 3:
+                case "3":
                     listOfMembers(members);
                     break;
-                case 4:
-                    System.out.println("Enter the members name: ");     // Här ska admin kunna söker på användare i systemet
+                case "4":
+                    System.out.println("Enter the members name: ");
                     String name = scanner.nextLine();
                     Member member = findUser(name, members);
                     System.out.println(member);
                     break;
-                case 5:
+                case "5":
                     running = false;
                     break;
+                default:
+                    System.out.println("Please choose a valid number");
             }
         }
     }
 
-    private void addNewBook() {
+    private void addNewBook(ArrayList<Book> books) {
         System.out.println("Enter the title of the book: ");
         String title = scanner.nextLine();
         System.out.println("Enter the author of the book: ");
         String author = scanner.nextLine();
-
-        // metod som sen lägger till boken. Ska denna ligga i Library och att man skickar med alla attribut dit?
+        System.out.println("Enter a short description of the book: ");
+        String description = scanner.nextLine();
+        books.add(new Book(title, author, description));
     }
 
     private void removeBook() {

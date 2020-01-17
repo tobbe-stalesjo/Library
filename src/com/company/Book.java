@@ -6,14 +6,14 @@ public class Book implements Serializable {
 
     private String title;
     private String author;
-    private String descrition;
+    private String description;
     private boolean available;
 
 
     public Book(String title, String author, String descrition) {
         this.title = title;
         this.author = author;
-        this.descrition = descrition;
+        this.description = descrition;
         setAvailable(true);
     }
 
@@ -23,10 +23,6 @@ public class Book implements Serializable {
 
     public String getAuthor() {
         return author;
-    }
-
-    public String getDescrition() {
-        return descrition;
     }
 
     public void setAvailable(boolean available) {

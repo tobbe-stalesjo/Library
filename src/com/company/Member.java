@@ -25,26 +25,32 @@ public class Member implements Serializable {
             System.out.println("2. See what book I have borrowed right now");
             System.out.println("3. Return a book");
             System.out.println("4. Log out");
-            int choice = Integer.parseInt(scanner.nextLine());
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     System.out.println("Enter what book you want to borrow: ");
                     String input = scanner.nextLine();
                     Book book = searchForBook(input, books);
                     borrowBook(book);
                     break;
-                case 2:
+                case "2":
                     seeMyBooks();
                     break;
-                case 3:
+                case "3":
+                    if (borrowedBooks.size() == 0) {
+                        System.out.println("You don't have any borrowed books right now.");
+                        break;
+                    }
                     System.out.println("Enter the title of the book you are returning");
                     String title = scanner.nextLine();
-                    returnBook(title);
+                    returnBook(searchForBook(title, borrowedBooks));
                     break;
-                case 4:
+                case "4":
                     running = false;
                     break;
+                default:
+                    System.out.println("Please choose a valid number");
             }
         }
     }
@@ -67,13 +73,10 @@ public class Member implements Serializable {
         }
     }
 
-    private void returnBook(String title) {
-        for (Book book : borrowedBooks) {
-            if (book.getTitle().equals(title)) {
-                borrowedBooks.remove(book);
-                book.setAvailable(true);
-            }
-        }
+    private void returnBook(Book book) {
+            borrowedBooks.remove(book);
+            book.setAvailable(true);
+        System.out.println("You have returned book: " + book);
     }
 
     public Book searchForBook(String input, ArrayList<Book> books) {

@@ -33,32 +33,34 @@ public class Library implements Serializable {
             System.out.println("5. Log in as Admin");
             System.out.println("6. Exit");
 
-            int choice = Integer.parseInt(scanner.nextLine());
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     allBook();
                     break;
-                case 2:
+                case "2":
                     allAvailableBook();
                     break;
-                case 3:
+                case "3":
                     System.out.println("Enter the title or author of the book you searching for");
                     String input = scanner.nextLine();
                     Book book = searchForBook(input);
                     System.out.println(book);
                     break;
-                case 4:
+                case "4":
                     String user = logIn();
                     member.logInMember(user, books);
                     break;
-                case 5:
+                case "5":
                     logInAdmin();
                     break;
-                case 6:
+                case "6":
                     FileUtility.saveObject("librarySave.ser", this);
                     running = false;
                     break;
+                default:
+                    System.out.println("Please choose a valid number");
             }
         }
     }
@@ -117,7 +119,7 @@ public class Library implements Serializable {
         String user = scanner.nextLine();
         if (user.equals("Admin")) {
             admin = new Admin();
-            admin.logInAsAdmin(members);
+            admin.logInAsAdmin(members, books);
         } else {
             System.out.println("You enter wrong credentials please try again. ");
             startMenu();
