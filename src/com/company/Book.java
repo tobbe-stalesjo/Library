@@ -37,6 +37,6 @@ public class Book implements Serializable {
     public String toString() {
         return "Title: " + title +
                 " Author: " + author +
-                " Available: " + available;
+                " Description: " + description;
     }
 }

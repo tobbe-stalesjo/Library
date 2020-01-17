@@ -64,9 +64,9 @@ public class Member implements Serializable {
 
     private void seeMyBooks() {
         if (borrowedBooks.size() == 0)
-            System.out.println("You don't have any borrowed books right now.");
+            System.out.println("You don't have any borrowed books right now.\n");
         else {
-            System.out.println("You have current books borrowed");
+            System.out.println("You have current books borrowed\n");
             for (Book book : borrowedBooks) {
                 System.out.println(book);
             }
