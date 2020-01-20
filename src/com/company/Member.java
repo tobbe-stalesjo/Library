@@ -61,7 +61,6 @@ public class Member implements Serializable {
         System.out.println("You have borrowed following book " + book);
     }
 
-
     private void seeMyBooks() {
         if (borrowedBooks.size() == 0)
             System.out.println("You don't have any borrowed books right now.\n");
@@ -84,7 +83,6 @@ public class Member implements Serializable {
             if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
                 // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
                 return book;
-                // Kan man här även visa om den finns tillänglig att låna och lånad den direkt?
             }
         }
         return null;

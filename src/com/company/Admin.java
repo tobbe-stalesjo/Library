@@ -20,7 +20,9 @@ public class Admin implements Serializable {
             System.out.println("2. Remove a book");
             System.out.println("3. List of all members");
             System.out.println("4. Search for a member");
-            System.out.println("5. Log out");
+            System.out.println("5. See all borrowed books.");
+            System.out.println("6. See all borrowed books by user");
+            System.out.println("7. Log out");
 
             String choice = scanner.nextLine();
 
@@ -29,7 +31,7 @@ public class Admin implements Serializable {
                     addNewBook(books);
                     break;
                 case "2":
-                    removeBook();
+                    removeBook(books);
                     break;
                 case "3":
                     listOfMembers(members);
@@ -41,6 +43,12 @@ public class Admin implements Serializable {
                     System.out.println(member);
                     break;
                 case "5":
+                    seeAllBorrowedBook(books);
+                    break;
+                case "6":
+                    seeAllBorrowedBookByUser(members);
+                    break;
+                case "7":
                     running = false;
                     break;
                 default:
@@ -59,9 +67,12 @@ public class Admin implements Serializable {
         books.add(new Book(title, author, description));
     }
 
-    private void removeBook() {
-        // här behöver jag ha en metod som först kollar om man har skrivit en författare eller title samt att man kollar detta mot listan
-        // sen ska du kunna välja vilken av böckerna det är från den listan du fått upp. Tänk på att listan börjar på 0 och ta med detta
+    private void removeBook(ArrayList<Book> books) {
+        System.out.println("Enter what book you want to remove: ");
+        String input = scanner.nextLine();
+        Book book = searchForBook(books, input);
+        books.remove(book);
+        System.out.println("You have removed book " + book);
     }
 
     public void listOfMembers(ArrayList<Member> members) {
@@ -74,6 +85,30 @@ public class Admin implements Serializable {
         for (Member member : members) {
             if (member.getName().equals(user))
                 return member;
+        }
+        return null;
+    }
+
+    private void seeAllBorrowedBook(ArrayList<Book> books) {
+        for (Book book : books) {
+            if (!book.getAvailable()) {
+                System.out.println(book);
+            }
+        }
+    }
+
+    private void seeAllBorrowedBookByUser(ArrayList<Member> members) {
+        System.out.println("Enter the user you want to see: ");
+        String name = scanner.nextLine();
+        Member user = findUser(name, members);
+    }
+
+    public Book searchForBook(ArrayList<Book> books, String input) {
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
+                // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
+                return book;
+            }
         }
         return null;
     }

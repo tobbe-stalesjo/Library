@@ -45,7 +45,7 @@ public class Library implements Serializable {
                 case "3":
                     System.out.println("Enter the title or author of the book you searching for");
                     String input = scanner.nextLine();
-                    Book book = searchForBook(input);
+                    Book book = admin.searchForBook(books, input);
                     System.out.println(book);
                     break;
                 case "4":
@@ -77,17 +77,6 @@ public class Library implements Serializable {
                 System.out.println(book);
             }
         }
-    }
-
-    public Book searchForBook(String input) {
-        for (Book book : books) {
-            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
-                // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
-                return book;
-                // Kan man här även visa om den finns tillänglig att låna och lånad den direkt?
-            }
-        }
-        return null;
     }
 
     public String logIn() {                                         // Blir detta rätt med att skicka tillbaka en String
