@@ -22,7 +22,7 @@ public class Admin implements Serializable {
             System.out.println("4. Search for a member");
             System.out.println("5. See all borrowed books.");
             System.out.println("6. See all borrowed books by user");
-            System.out.println("7. Log out");
+            System.out.println("7. Log out and save");
 
             String choice = scanner.nextLine();
 
@@ -105,8 +105,7 @@ public class Admin implements Serializable {
 
     public Book searchForBook(ArrayList<Book> books, String input) {
         for (Book book : books) {
-            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
-                // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
+            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
                 return book;
             }
         }

@@ -9,11 +9,11 @@ import java.util.List;
 
 public class FileUtility {
 
-    public static void writeObject(Object object){
+    public static void writeObject(Object object, String fileName){
         ObjectOutputStream objectOutputStream = null;
         FileOutputStream fileOutputStream = null;
         try{
-            fileOutputStream = new FileOutputStream("library.ser", false);
+            fileOutputStream = new FileOutputStream(fileName, false);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(object);
             objectOutputStream.close();

@@ -17,6 +17,7 @@ public class Library implements Serializable {
 
     public Library() {
         loadProgram();
+        System.out.println(members.toString());
         startMenu();
     }
 
@@ -31,7 +32,7 @@ public class Library implements Serializable {
             System.out.println("3. Search for a book");
             System.out.println("4. Log in to My Pages");
             System.out.println("5. Log in as Admin");
-            System.out.println("6. Exit");
+            System.out.println("6. Quit and Save");
 
             String choice = scanner.nextLine();
 
@@ -51,12 +52,15 @@ public class Library implements Serializable {
                 case "4":
                     String user = logIn();
                     member.logInMember(user, books);
+                    FileUtility.writeObject(this, "librarySave.ser");
                     break;
                 case "5":
                     logInAdmin();
+                    FileUtility.writeObject(this, "librarySave.ser");
                     break;
                 case "6":
-                    FileUtility.saveObject("librarySave.ser", this);
+                    FileUtility.writeObject(this, "librarySave.ser");
+                    System.out.println(members.toString());
                     running = false;
                     break;
                 default:
@@ -116,11 +120,11 @@ public class Library implements Serializable {
     }
 
     private void loadProgram() {
-        Path file = new File("librarySave").toPath();
+        Path file = new File("librarySave.ser").toPath();
         if (Files.exists(file)) {
-            Library savedFile = (Library) FileUtility.loadObject("librarySave.ser");
-            books = savedFile.books;
-            members = savedFile.members;
+            Library savedFile = (Library) FileUtility.readObject("librarySave.ser");
+            this.books = savedFile.books;
+            this.members = savedFile.members;
         } else {
             booksFromStart();
         }

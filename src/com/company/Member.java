@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Member implements Serializable {
 
-    transient Scanner scanner = new Scanner(System.in);
     private String name;
     private ArrayList<Book> borrowedBooks = new ArrayList<>();
 
@@ -17,6 +16,7 @@ public class Member implements Serializable {
 
     public void logInMember(String user, ArrayList<Book> books) {
         boolean running = true;
+        Scanner scanner = new Scanner(System.in);
 
         while (running) {
             System.out.println("Welcome " + user + " to My Pages:");
@@ -24,15 +24,20 @@ public class Member implements Serializable {
             System.out.println("1. Borrow a book");
             System.out.println("2. See what book I have borrowed right now");
             System.out.println("3. Return a book");
-            System.out.println("4. Log out");
+            System.out.println("4. Log out and save");
             String choice = scanner.nextLine();
 
             switch (choice) {
                 case "1":
-                    System.out.println("Enter what book you want to borrow: ");
-                    String input = scanner.nextLine();
-                    Book book = searchForBook(input, books);
-                    borrowBook(book);
+                    try {
+                        System.out.println("Enter what book you want to borrow: ");
+                        String input = scanner.nextLine();
+                        Book book = searchForBook(input, books);
+                        borrowBook(book);
+                    }
+                    catch (Exception e) {
+                        System.out.println("Book can not be found");
+                    }
                     break;
                 case "2":
                     seeMyBooks();
@@ -73,8 +78,8 @@ public class Member implements Serializable {
     }
 
     private void returnBook(Book book) {
-            borrowedBooks.remove(book);
-            book.setAvailable(true);
+        borrowedBooks.remove(book);
+        book.setAvailable(true);
         System.out.println("You have returned book: " + book);
     }
 
