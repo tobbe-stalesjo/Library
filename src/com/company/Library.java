@@ -88,8 +88,9 @@ public class Library implements Serializable {
         member = inListMember;
         if (inListMember == null) {
             newUser(user);
+            return user;
         }
-        return null;
+        return inListMember.getName();
     }
 
     public Member findUser(String user) {

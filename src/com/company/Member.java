@@ -99,9 +99,10 @@ public class Member implements Serializable {
 
     public Book searchForBook(String input, ArrayList<Book> books) {
         for (Book book : books) {
-            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {      // Kan jag här även lägga till isAvailable?
-                // && book.getAvailable()  Denna funkar inte så länge man har toLowerCase?
-                return book;
+            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
+                if (book.getAvailable()) {
+                    return book;
+                }
             }
         }
         return null;
