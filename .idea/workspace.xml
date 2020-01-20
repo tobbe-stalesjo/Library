@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3d85c1df-ea4f-487b-8413-bf72246f61e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/FileUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/FileUtility.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Library.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Biblioteksapplikation/com/company/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/FileUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FileUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Member.java" afterDir="false" />
     </list>
@@ -37,7 +33,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Comparable - Sort List" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
@@ -92,30 +88,31 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579004096876" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1578996357656">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="592" y="217" key="FileChooserDialogImpl" timestamp="1579514061561">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="592" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1579514061561" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578996357656" />
     <state x="811" y="414" key="Github.ShareDialog" timestamp="1579174391112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="811" y="414" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579174391112" />
-    <state width="491" height="662" key="GridCell.Tab.0.bottom" timestamp="1579506644642">
+    <state width="491" height="662" key="GridCell.Tab.0.bottom" timestamp="1579514891194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="491" height="662" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579506644642" />
-    <state width="491" height="662" key="GridCell.Tab.0.center" timestamp="1579506644642">
+    <state width="491" height="662" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579514891194" />
+    <state width="491" height="662" key="GridCell.Tab.0.center" timestamp="1579514891194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="491" height="662" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579506644642" />
-    <state width="491" height="662" key="GridCell.Tab.0.left" timestamp="1579506644642">
+    <state width="491" height="662" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579514891194" />
+    <state width="491" height="662" key="GridCell.Tab.0.left" timestamp="1579514891194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="491" height="662" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579506644642" />
-    <state width="491" height="662" key="GridCell.Tab.0.right" timestamp="1579506644642">
+    <state width="491" height="662" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579514891194" />
+    <state width="491" height="662" key="GridCell.Tab.0.right" timestamp="1579514891194">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="491" height="662" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579506644642" />
+    <state width="491" height="662" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579514891194" />
     <state width="1493" height="239" key="GridCell.Tab.1.bottom" timestamp="1579261246189">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -136,6 +133,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579004608538" />
+    <state x="209" y="0" key="new project wizard" timestamp="1579509748328">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1579509748328" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1579004411911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

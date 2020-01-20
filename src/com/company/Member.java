@@ -24,7 +24,8 @@ public class Member implements Serializable {
             System.out.println("1. Borrow a book");
             System.out.println("2. See what book I have borrowed right now");
             System.out.println("3. Return a book");
-            System.out.println("4. Log out and save");
+            System.out.println("4. Sort books");
+            System.out.println("5. Log out and save");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -34,8 +35,7 @@ public class Member implements Serializable {
                         String input = scanner.nextLine();
                         Book book = searchForBook(input, books);
                         borrowBook(book);
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
                         System.out.println("Book can not be found");
                     }
                     break;
@@ -52,6 +52,20 @@ public class Member implements Serializable {
                     returnBook(searchForBook(title, borrowedBooks));
                     break;
                 case "4":
+                    System.out.println("How do you want to sort?");
+                    System.out.println("1. Sort by title");
+                    System.out.println("2. Sort by author");
+                    String sortType = scanner.nextLine();
+                    if (sortType.equals("1")) {
+                        sortBooksByTitle(books);
+                    } else if (sortType.equals("2")) {
+                        sortBooksByAuthor(books);
+                    }
+                    else {
+                        System.out.println("Invalid number, try again");
+                }
+                break;
+                case "5":
                     running = false;
                     break;
                 default:
@@ -91,6 +105,26 @@ public class Member implements Serializable {
             }
         }
         return null;
+    }
+
+    private void sortBooksByTitle(ArrayList<Book> books) {
+        books.sort((p1, p2) -> {
+            return p1.getTitle().compareTo(p2.getTitle());
+        });
+        System.out.println("\nSorted by age;");
+        for (Book book : books) {
+            System.out.printf("Name: %s, Age: %s\n", book.getTitle(), book.getTitle());
+        }
+    }
+
+    private void sortBooksByAuthor(ArrayList<Book> books) {
+        books.sort((p1, p2) -> {
+            return p1.getAuthor().compareTo(p2.getAuthor());
+        });
+        System.out.println("\nSorted by age;");
+        for (Book book : books) {
+            System.out.printf("Name: %s, Age: %s\n", book.getAuthor(), book.getAuthor());
+        }
     }
 
     public String getName() {

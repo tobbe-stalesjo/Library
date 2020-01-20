@@ -17,7 +17,6 @@ public class Library implements Serializable {
 
     public Library() {
         loadProgram();
-        System.out.println(members.toString());
         startMenu();
     }
 
@@ -60,7 +59,6 @@ public class Library implements Serializable {
                     break;
                 case "6":
                     FileUtility.writeObject(this, "librarySave.ser");
-                    System.out.println(members.toString());
                     running = false;
                     break;
                 default:
