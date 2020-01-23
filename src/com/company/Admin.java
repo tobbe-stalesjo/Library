@@ -101,6 +101,7 @@ public class Admin implements Serializable {
         System.out.println("Enter the user you want to see: ");
         String name = scanner.nextLine();
         Member user = findUser(name, members);
+        user.seeMyBooks();
     }
 
     public Book searchForBook(ArrayList<Book> books, String input) {

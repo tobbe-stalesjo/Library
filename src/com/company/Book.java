@@ -9,6 +9,8 @@ public class Book implements Serializable {
     private String description;
     private boolean available;
 
+    // timestamp
+    // localdatetime
 
     public Book(String title, String author, String descrition) {
         this.title = title;

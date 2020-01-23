@@ -80,7 +80,7 @@ public class Member implements Serializable {
         System.out.println("You have borrowed following book " + book);
     }
 
-    private void seeMyBooks() {
+    public void seeMyBooks() {
         if (borrowedBooks.size() == 0)
             System.out.println("You don't have any borrowed books right now.\n");
         else {
