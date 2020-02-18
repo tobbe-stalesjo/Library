@@ -49,7 +49,11 @@ public class Member implements Serializable {
                     }
                     System.out.println("Enter the title of the book you are returning");
                     String title = scanner.nextLine();
-                    returnBook(searchForBook(title, borrowedBooks));
+                    try {
+                        returnBook(searchForBook(title, borrowedBooks));
+                    } catch (Exception e) {
+                        System.out.println("Can not find any book by that name");
+                    }
                     break;
                 case "4":
                     System.out.println("How do you want to sort?");
@@ -114,7 +118,7 @@ public class Member implements Serializable {
         });
         System.out.println("\nSorted by age;");
         for (Book book : books) {
-            System.out.printf("Name: %s, Age: %s\n", book.getTitle(), book.getTitle());
+            System.out.printf("Name: %s, Auther: %s\n", book.getTitle(), book.getAuthor());
         }
     }
 
@@ -124,7 +128,7 @@ public class Member implements Serializable {
         });
         System.out.println("\nSorted by age;");
         for (Book book : books) {
-            System.out.printf("Name: %s, Age: %s\n", book.getAuthor(), book.getAuthor());
+            System.out.printf("Auther: %s, Name: %s\n", book.getAuthor(), book.getTitle());
         }
     }
 

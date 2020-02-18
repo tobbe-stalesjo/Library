@@ -45,7 +45,7 @@ public class Library implements Serializable {
                 case "3":
                     System.out.println("Enter the title or author of the book you searching for");
                     String input = scanner.nextLine();
-                    Book book = admin.searchForBook(books, input);
+                    Book book = admin.searchForBook(books, input);      // Är det här det blir fel
                     System.out.println(book);
                     break;
                 case "4":
