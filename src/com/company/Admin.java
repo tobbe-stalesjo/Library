@@ -106,12 +106,8 @@ public class Admin implements Serializable {
 
     public Book searchForBook(ArrayList<Book> books, String input) {
         for (Book book : books) {
-            try {
-                if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
-                    return book;
-                }
-            } catch (Exception e) {
-                System.out.println("The book you searched for can not be found. Please try again.");
+            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
+                return book;
             }
         }
         return null;
