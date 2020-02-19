@@ -45,8 +45,7 @@ public class Library implements Serializable {
                 case "3":
                     System.out.println("Enter the title or author of the book you searching for");
                     String input = scanner.nextLine();
-                    Book book = admin.searchForBook(books, input);      // Är det här det blir fel
-                    System.out.println(book);
+                    searchForBook(books, input);
                     break;
                 case "4":
                     String user = logIn();
@@ -127,6 +126,15 @@ public class Library implements Serializable {
         } else {
             booksFromStart();
         }
+    }
+
+    private void searchForBook(ArrayList<Book> books, String input) {
+        for (Book book : books) {
+            if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
+                System.out.println(book);
+            }
+        }
+        System.out.println("The book you searched for can not be found. Please try again.");
     }
 
     private void booksFromStart() {
