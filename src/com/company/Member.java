@@ -47,10 +47,11 @@ public class Member implements Serializable {
                         System.out.println("You don't have any borrowed books right now.");
                         break;
                     }
-                    System.out.println("Enter the title of the book you are returning");
-                    String title = scanner.nextLine();
                     try {
-                        returnBook(searchForBook(title, borrowedBooks));
+                        System.out.println("Enter the title of the book you are returning");
+                        String title = scanner.nextLine();
+                        Book borrowedBooks = searchForBook(title, books);
+                        returnBook(borrowedBooks);
                     } catch (Exception e) {
                         System.out.println("Can not find any book by that name");
                     }
@@ -64,11 +65,10 @@ public class Member implements Serializable {
                         sortBooksByTitle(books);
                     } else if (sortType.equals("2")) {
                         sortBooksByAuthor(books);
-                    }
-                    else {
+                    } else {
                         System.out.println("Invalid number, try again");
-                }
-                break;
+                    }
+                    break;
                 case "5":
                     running = false;
                     break;
@@ -104,9 +104,7 @@ public class Member implements Serializable {
     public Book searchForBook(String input, ArrayList<Book> books) {
         for (Book book : books) {
             if (book.getTitle().toLowerCase().contains(input.toLowerCase()) || book.getAuthor().toLowerCase().contains(input.toLowerCase())) {
-                if (book.getAvailable()) {
                     return book;
-                }
             }
         }
         return null;
@@ -116,7 +114,7 @@ public class Member implements Serializable {
         books.sort((p1, p2) -> {
             return p1.getTitle().compareTo(p2.getTitle());
         });
-        System.out.println("\nSorted by age;");
+        System.out.println("\nSorted by name;");
         for (Book book : books) {
             System.out.printf("Name: %s, Auther: %s\n", book.getTitle(), book.getAuthor());
         }
@@ -126,7 +124,7 @@ public class Member implements Serializable {
         books.sort((p1, p2) -> {
             return p1.getAuthor().compareTo(p2.getAuthor());
         });
-        System.out.println("\nSorted by age;");
+        System.out.println("\nSorted by auther;");
         for (Book book : books) {
             System.out.printf("Auther: %s, Name: %s\n", book.getAuthor(), book.getTitle());
         }
