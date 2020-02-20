@@ -51,10 +51,12 @@ public class Library implements Serializable {
                     String user = logIn();
                     member.logInMember(user, books);
                     FileUtility.writeObject(this, "librarySave.ser");
+                    System.exit(0);
                     break;
                 case "5":
                     logInAdmin();
                     FileUtility.writeObject(this, "librarySave.ser");
+                    System.exit(0);
                     break;
                 case "6":
                     FileUtility.writeObject(this, "librarySave.ser");
